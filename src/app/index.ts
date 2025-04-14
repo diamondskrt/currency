@@ -1,3 +1,3 @@
 export { default as App } from './App.vue'
-export { vueQueryPlugin } from './plugins'
+export { setupPiniaPlugin, setupVueQueryPlugin } from './plugins'
 export { router } from './router'

@@ -3,8 +3,8 @@ import type { App } from 'vue'
 
 const queryClient = new QueryClient()
 
-const vueQueryPlugin = (app: App) => {
+const setupVueQueryPlugin = (app: App) => {
   app.use(VueQueryPlugin, { queryClient })
 }
 
-export { vueQueryPlugin }
+export { setupVueQueryPlugin }

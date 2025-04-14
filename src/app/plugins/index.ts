@@ -1,1 +1,2 @@
-export { vueQueryPlugin } from './vueQuery'
+export { setupPiniaPlugin } from './pinia'
+export { setupVueQueryPlugin } from './vueQuery'
