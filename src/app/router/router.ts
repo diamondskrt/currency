@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { About } from '~/pages/about'
+import { DefaultLayout } from '~/app/layouts'
+import { Convert } from '~/pages/convert'
 import { Home } from '~/pages/home'
 
 const routes = [
-  { component: Home, name: 'home', path: '/' },
-  { component: About, name: 'about', path: '/about' },
+  {
+    path: '/',
+    component: DefaultLayout,
+    children: [
+      { component: Home, name: 'home', path: '' },
+      { component: Convert, name: 'convert', path: 'convert' },
+    ],
+  },
 ]
 
 const router = createRouter({

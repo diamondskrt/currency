@@ -10,7 +10,7 @@ import tseslint from 'typescript-eslint'
 
 export default defineConfig([
   tseslint.configs.recommended,
-  pluginVue.configs['flat/essential'],
+  pluginVue.configs['flat/recommended'],
   eslintPluginPrettierRecommended,
   {
     extends: [js.configs.recommended, importPlugin.flatConfigs.recommended],
@@ -24,6 +24,21 @@ export default defineConfig([
     },
     plugins: { boundaries, js, perfectionist },
     rules: {
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              message:
+                'Use import of specific functions, for example \'import omit from "lodash/omit"\'.',
+              name: 'lodash',
+            },
+          ],
+        },
+      ],
+      'no-unused-vars': 'off',
+      'vue/require-default-prop': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { varsIgnorePattern: '^_' },
@@ -82,15 +97,12 @@ export default defineConfig([
           pathGroupsExcludedImportTypes: ['builtin'],
         },
       ],
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
       'perfectionist/sort-array-includes': 'error',
       'perfectionist/sort-exports': 'error',
       'perfectionist/sort-modules': 'error',
       'perfectionist/sort-named-exports': 'error',
       'perfectionist/sort-named-imports': 'error',
       'perfectionist/sort-object-types': 'error',
-      'perfectionist/sort-objects': 'error',
       'prettier/prettier': 'error',
     },
     settings: {
