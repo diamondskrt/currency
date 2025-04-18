@@ -17,7 +17,7 @@ interface FetchError {
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
 class ApiClient {
-  private baseURL: string = import.meta.env.VITE_API_URL
+  private baseURL: string = import.meta.env.VITE_EXCHANGE_RATE_API_URL
   private accessToken: string | null = tokenStorage.getAccessToken()
   private refreshToken: string | null = tokenStorage.getRefreshToken()
   private isRefreshing = false
